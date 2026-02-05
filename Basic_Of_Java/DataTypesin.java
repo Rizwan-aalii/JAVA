@@ -38,6 +38,13 @@ public class DataTypesin {
         System.out.println(letter);
         System.out.println("Size of Character : " + Character.BYTES);
 
+        /*
+        boolean data type it have only two value TRUE AND FALSE  */
+        boolean male = true ;
+        boolean married = false ;
+
+        System.out.println(male);
+        System.out.println(married);
     }
     
 }
