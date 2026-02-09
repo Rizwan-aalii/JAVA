@@ -1,5 +1,3 @@
-import  java.lang.reflect.Array ;
-import java.util.Arrays;
 
 
 class ContactNumbers{
@@ -98,8 +96,26 @@ class ContactNumbers{
         if(checkSizeGreator()) return ; 
         if(checkSizeLess()) return; 
 
+        System.out.println("Number Add : " + number + " At Index : " + count);
         numberArray[count] = number ;
         count++ ;
+    }
+
+    void insertAtFirst(long number){
+        if(checkSizeGreator()) return;
+
+        for(int i = sizeOfContact-1 ; i>0 ; i--){
+            numberArray[i] = numberArray[i-1];
+        }
+        System.out.println("Number Add : " + number + " At Index : " + count);
+        numberArray[0] = number ;
+        count++ ;
+    }
+
+    void sizeOfArray(){
+        if(checkSizeLess()) return ;
+
+       System.out.println("Size Of Array : " + count);
     }
 
     void searchNumber(long number){
@@ -111,12 +127,14 @@ class ContactNumbers{
     void updateNumber( int index , long number){
         if(checkIndex(index)) return; 
 
+        System.out.println("Number Update : " + number + " At Index : " + index);
         numberArray[index] = number;
     }
 
     void deleteNumber(int index){
         if(checkIndex(index)) return; 
 
+        System.out.println("Number Add : " + numberArray[index] + " At Index : " + index);
         loopONumbers(0, count, "SwapForwad");
         count-- ;
     }
@@ -145,19 +163,14 @@ public class NumberCRUD {
 
          ContactNumbers contact = new ContactNumbers(sizeOfConstactNo_Array);
          contact.insertNumber(rizwanNo);
+         contact.insertAtFirst(mohdRafique);
          contact.insertNumber(mohdRafiq);
-         contact.insertNumber(ajoysir);
          contact.displayNumbers();
-         contact.updateNumber(2, myrizwan);
-         System.out.println("After update Number");
+         contact.updateNumber(1, ajoysir);
          contact.displayNumbers();
-         contact.deleteNumber(1);
-         System.out.println("After Delete Array Index");
+         contact.deleteNumber(0);
          contact.displayNumbers();
-         contact.searchNumber(myrizwan);
-         contact.insertNumber(ajoysir);
-         contact.insertNumber(mohdRafique);
-
-
+         contact.insertNumber(rizwanNo);
+         contact.displayNumbers();
     }
 }
