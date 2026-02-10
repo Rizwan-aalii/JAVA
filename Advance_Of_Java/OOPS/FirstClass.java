@@ -1,4 +1,4 @@
-package OOPS;
+package Advance_Of_Java.OOPS;
 
 class MyClass{
     int age ;
