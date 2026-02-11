@@ -35,7 +35,7 @@ class StudentGrades{
     void displayAllGrades(){
         if(checkSizeLess()) return;
 
-        for(int i = 0 ; i< gradesOfStd.length ; i++){
+        for(int i = 0 ; i< attendese ; i++){
             System.out.print(gradesOfStd[i] + " ");
         }
         System.out.println();

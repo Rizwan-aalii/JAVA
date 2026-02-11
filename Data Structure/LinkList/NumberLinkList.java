@@ -92,13 +92,28 @@ class LinksList{
         }
     }
 
-    // void deleteNode(int index){
-    //     if(checkHeadNull()) return;
+     void deleteNodeByIndex(int index){
+         if(checkHeadNull()) return;
 
-    //     if(index == 0){
+         if(index == 0){
+            deleteNodeAtHead();
+            return;
+         }
 
-    //     }
-    // }
+         Node prev = null ;
+         Node next = head ;
+
+        for (int i = 0 ; i<index ;i++){
+            prev = next ;
+            next = next.next ;
+        }
+
+        prev.next = next.next ;
+
+        if (prev.next == tail){
+            tail = prev;
+        }
+     }
 
     void deleteNodeAtTail(){
         if(checkHeadNull()) return;
@@ -145,8 +160,10 @@ public class NumberLinkList {
 
         LinksList list = new  LinksList();
         list.insertAtHead(12);
+        list.insertAtHead(10);
         list.displayNodes();
-        list.deleteNodeAtTail();
+        list.deleteNodeByIndex(0);
+        list.displayNodes();
         
     }
 }
