@@ -146,13 +146,7 @@ public class NumberLinkList {
         LinksList list = new  LinksList();
         list.insertAtHead(12);
         list.displayNodes();
-        list.insertAtHead(14);
-        list.insertAtHead(25);
-        list.insertAtHead(20);
-        list.deleteNodeAtHead();
-        list.displayNodes();
         list.deleteNodeAtTail();
-        list.deleteNodeAtTail();
-        list.displayNodes();
+        
     }
 }
