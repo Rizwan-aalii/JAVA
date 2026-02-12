@@ -41,7 +41,7 @@ class LinksList{
     void insertAtHead(int val){
         Node newnode = new Node(val);
 
-         if(head == null){
+        if(head == null){
             head = tail = newnode ;
             System.out.println("Insert At Head : " + newnode.data);
             count++ ;
@@ -55,13 +55,13 @@ class LinksList{
     }
 
     void insertAtTail(int val ){
-        
+
         Node newnode = new Node(val);
         if(head == null ){
             head = tail = newnode ;
             count++ ;
             System.out.println("Insert At Head : " + newnode.data);
-            return; 
+            return;
         }
 
         tail.next = newnode ;
@@ -71,37 +71,37 @@ class LinksList{
     }
 
     void updateNode(int index , int val ){
-        if(checkHeadNull()) return; 
+        if(checkHeadNull()) return;
         if(checkIndex(index)) return;
-        // this counting start from 1 index 
+        // this counting start from 1 index
         // loop start from 0 index that why index -1 ;
         Node temp = head ;
         for(int i = 0 ; i<index-1 ; i++){
             temp = temp.next ;
         }
+        System.out.println(temp.data + " Update By : " + val);
         temp.data = val ;
-        System.out.println("Update At Index : " + val);
     }
 
     void deleteNodeAtHead(){
-        if(checkHeadNull()) return; 
+        if(checkHeadNull()) return;
 
         head = head.next ;
         if(head == null){
-             tail = null ;
+            tail = null ;
         }
     }
 
-     void deleteNodeByIndex(int index){
-         if(checkHeadNull()) return;
+    void deleteNodeByIndex(int index){
+        if(checkHeadNull()) return;
 
-         if(index == 0){
+        if(index == 0){
             deleteNodeAtHead();
             return;
-         }
+        }
 
-         Node prev = null ;
-         Node next = head ;
+        Node prev = null ;
+        Node next = head ;
 
         for (int i = 0 ; i<index ;i++){
             prev = next ;
@@ -113,7 +113,7 @@ class LinksList{
         if (prev.next == tail){
             tail = prev;
         }
-     }
+    }
 
     void deleteNodeAtTail(){
         if(checkHeadNull()) return;
@@ -148,22 +148,25 @@ class LinksList{
         System.out.println("Size of List : " + count);
     }
 
-    
+
 
 
 }
 
-public class NumberLinkList {
+public class NumbersLinkList {
     public static void main(String[] args) {
-        
+
         System.out.println("Link List CRUD");
 
         LinksList list = new  LinksList();
         list.insertAtHead(12);
         list.insertAtHead(10);
         list.displayNodes();
+        list.updateNode(1 , 20);
+        list.displayNodes();
         list.deleteNodeByIndex(0);
         list.displayNodes();
-        
+
     }
 }
+

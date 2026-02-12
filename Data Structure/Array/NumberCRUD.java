@@ -124,6 +124,16 @@ class ContactNumbers{
         loopONumbers(0, count, "Search", number);
     }
 
+    void searchByIndex(int index){
+        if (checkIndex(index)) return;
+
+        for (int i = 0 ; i<count ; i++){
+            if (i == index){
+                System.out.println("Found Contact : " + numberArray[i]);
+            }
+        }
+    }
+
     void updateNumber( int index , long number){
         if(checkIndex(index)) return; 
 
@@ -172,5 +182,8 @@ public class NumberCRUD {
          contact.displayNumbers();
          contact.insertNumber(rizwanNo);
          contact.displayNumbers();
+         contact.searchNumber(ajoysir);
+         contact.searchByIndex(1);
+         contact.sizeOfArray();
     }
 }
