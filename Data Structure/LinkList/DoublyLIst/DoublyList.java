@@ -183,6 +183,11 @@ class DoublyLinkList{
         System.out.println("Size Of List : " + count);
     }
 
+    // yaha hamne ek temp node ko bola current ke next ko hold krna
+    // aur current ke pre  aur next pointer ko change kiya
+    // phale current ke next ko prev diya taki ek aur node secure ho sake
+    // fir current ke prev ko bola ab tu temp pe point kr
+    // ab current next iteration keliye update kiy currnt ot current prev
     public void reverseList() {
         if (checkHeadForNull()) return;
         Nodes current = head;
