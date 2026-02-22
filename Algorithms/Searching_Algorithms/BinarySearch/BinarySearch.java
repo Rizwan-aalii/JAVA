@@ -1,6 +1,4 @@
-package Algorithms.Searching_Algorithms;
-
-import java.sql.SQLOutput;
+package Algorithms.Searching_Algorithms.BinarySearch;
 
 public class BinarySearch {
 
