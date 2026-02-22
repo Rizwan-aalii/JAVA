@@ -25,7 +25,7 @@ class StackList{
 
     private boolean checkBookOverFlow(){
         if (count >= size){
-            System.out.println("Book Stack is OverFlow ");
+            System.out.println("Book Stack is OverFlow \n");
             return  true ;
         }
         return  false ;
@@ -42,8 +42,8 @@ class StackList{
     void push(double kg , String book ){
         if (checkBookOverFlow()) return;
 
-        System.out.println("Push");
-        System.out.println("Book Name : " + book + " Weight : " + kg);
+        System.out.println("\nPush");
+        System.out.println("Book Name : " + book + " , Weight : " + kg + " kg");
 
         weight[++top] = kg ;
         books[top] = book ;
@@ -53,22 +53,58 @@ class StackList{
     void pop(){
         if (checkBooksNull()) return;
 
-        System.out.println("Pop");
-        System.out.println("Delete Book : " + books[top] + " Weight : " + weight[top]);
+        System.out.println("\nPop");
+        System.out.println("Delete Book : " + books[top] + " Weight : " + weight[top]+ " kg");
         top-- ;
         count-- ;
     }
 
     void peek(){
         if (checkBooksNull()) return;
-        System.out.println("Peek");
+        System.out.println("\nPeek");
         System.out.print("Book Name : " + books[top]);
-        System.out.print("Book Weight : " + weight[top]);
+        System.out.print(" , Book Weight : " + weight[top] +" kg");
         System.out.println();
     }
 
+    void displayBookAndWeight(){
+        if (checkBooksNull()) return;
+
+        System.out.println("\nDisPlay All The Books");
+
+        for (int i = 0 ; i < count ; i++){
+            System.out.print("Book : " + books[i]);
+            System.out.print(" , Weight : " + weight[i]+" kg");
+            System.out.println();
+        }
+    }
+
+    void SelectionSort(){
+        if(checkBooksNull()) return;
+
+        for (int i = 0 ; i<count-1 ; i++){
+            int minindex = i ;
+            for (int j = i+1 ; j<count ; j++){
+                if (weight[j] < weight[minindex]){
+                    minindex = j ;
+                }
+
+            }
+            double temp = weight[i] ;
+            weight[i] = weight[minindex];
+            weight[minindex] = temp ;
+
+            String val = books[i] ;
+            books[i] = books[minindex];
+            books[minindex] = val;
+        }
+    }
+
+
     int BinarySearch(double kg){
         if (checkBooksNull()) return -1;
+
+        System.out.println("Binary Search \n");
 
         int start = 0 , end = count ;
         while (start <= end){
@@ -93,6 +129,11 @@ public class SortBookWeight {
         StackList list = new StackList(5);
         list.push(1.00 , "Java");
         list.push(2.2 , "DSA");
+        list.push(1.5 , "C++");
+        list.displayBookAndWeight();
         list.peek();
+        list.SelectionSort();
+        list.BinarySearch(2.2);
+        list.displayBookAndWeight();
     }
 }
